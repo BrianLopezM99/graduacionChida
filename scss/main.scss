@@ -1,0 +1,42 @@
+$jumbotron-bg: #00a2ff75;
+$jumbotron-color: #ffffff; 
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/*body{
+    background-image: url(../img/images.jpg);
+    background-size: cover;
+}*/
+
+#Info{
+    display: flex;
+    align-items: center;
+}
+
+#Icon{
+    text-align: center;
+    font-size: 50px;
+    height: 25px;
+}
+
+body{
+    background: url(../Imagenes/fondoladrillo.jpg);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.jumbotron{
+    box-shadow: 10px 10px 10px black;
+}
+
+.carousel-inner img{
+    height: 205px;
+}
+
+.navbar-brand img{
+    height: 40px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}

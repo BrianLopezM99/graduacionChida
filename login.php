@@ -58,6 +58,28 @@
     </style>
   </head>
   <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" href="http://www.unipolidgo.edu.mx/sitio/"><img src="img/cintillo-web.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>      
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost/BrianGraduacion/graduacion.html">Cancelar</a>
+            </li>      
+          </ul>
+          </form>
+        </div>
+      </nav>    
+
       <section class="container">
         <div class="jumbotron">
           <section class="row">
@@ -68,7 +90,7 @@
                   <input type="text" class="form-control" name="usuario" />
                 </div>
                 <div class="form-group">
-                  <label for="">Password</label>
+                  <label for="">Contraseña</label>
                   <input type="password" class="form-control" name="password" />
                 </div>
                 <button class="btn btn-primary">Enviar datos</button>

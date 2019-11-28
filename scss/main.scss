@@ -1,5 +1,5 @@
-$jumbotron-bg: #00a2ff75;
-$jumbotron-color: #ffffff; 
+$jumbotron-bg: #c5dfee94;
+$jumbotron-color: #000000; 
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
@@ -27,6 +27,7 @@ body{
 
 .jumbotron{
     box-shadow: 10px 10px 10px black;
+    margin-top: 30px;
 }
 
 .carousel-inner img{

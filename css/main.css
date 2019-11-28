@@ -4550,8 +4550,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  color: #ffffff;
-  background-color: #00a2ff75;
+  color: #000000;
+  background-color: #c5dfee94;
   border-radius: 0.3rem;
 }
 @media (min-width: 576px) {
@@ -9678,6 +9678,7 @@ body {
 
 .jumbotron {
   box-shadow: 10px 10px 10px black;
+  margin-top: 30px;
 }
 
 .carousel-inner img {

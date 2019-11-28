@@ -14,11 +14,12 @@
 
     body{
         display: grid;
+
     }
 
     .padre{
-        background-color: #F0E7D8;
-        border: 1px solid #ccc;
+        background-color:transparent;
+        border: 0px solid black;
         padding: 0 1rem;
         margin: 1rem;
         height: 150px;
@@ -144,7 +145,7 @@
 
         <div class="padre">
             <div class="hijo1"><h3>Pista de baile</h3><a href="#"><img src="Imagenes/reservacion1.png" alt=""></a></div>
-            <div class="hijo2">Comida <a href="#"><img src="Imagenes/reservacion2.png" alt=""></a></div>
+            <div class="hijo2">Mesa de comida<a href="#"><img src="Imagenes/reservacion2.png" alt=""></a></div>
         </div>
     </section>
 

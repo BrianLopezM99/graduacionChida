@@ -89,8 +89,9 @@ else{
         aside.indicadores{
             text-align: center;
             position: fixed;
-            top: 1;
             left: 0;
+            margin-top: -500px;
+            margin-left: 20px;
 
         }
         aside.indicadores img{
@@ -121,7 +122,11 @@ else{
         </div>
       </nav>
     
-    <section class="container-fluid">
+
+
+    <section class="col-md-12 col-sm-12" id="Info">
+                <div class="jumbotron">
+                <section class="container-fluid">
         <section class="row text-center">
             <div class="col-md-12">
             <h3> Selecciona el paquete para la cena</h3>
@@ -150,6 +155,8 @@ else{
             </div>
         </section>
     </section>
+                </div>
+            </section>
 
     <div class="modal" tabindex="-1" role="dialog" id="modalConfirmar">
   <div class="modal-dialog" role="document">

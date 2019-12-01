@@ -26,10 +26,11 @@ foreach($resultadoMesas as $fila){
     foreach($resultadoSillas as $fila){
         $idSilla=$fila["id"];
         $nombre = $fila["nombre"];
+        $paqueteR = $fila["paquete"];
 
         $posicion = $fila["posicion"];
         $reservada = $fila["paquete"] ? "silla-reservada" : "";
-        $mensaje = $nombre ? "title=\"Esta silla ya la tiene $nombre!\"" : "";
+        $mensaje = $nombre ? "title=\"Esta silla ya la tiene $nombre! con el paquete $paqueteR\"" : "";
 
         $sillas .=  sprintf($plantillaSilla, $posicion, $reservada, $mensaje, $idSilla);
     }

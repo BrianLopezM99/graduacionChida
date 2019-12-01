@@ -143,6 +143,35 @@
             echo $mesas;
         ?>
 
+<?php
+/*$consulta2="SELECT * FROM reservaciones";
+$resultado_=$conexionDB->query($consulta2);
+$filas2=$resultado_->num_rows;
+$usuarios_= array();
+while($fila1=$resultado_->fetch_assoc()){
+    $usuarios_[]=$fila1;
+}
+        echo("Solo ".$filas2." lugares fueron apartados");*/
+            ?>
+
+
+<?php
+
+$consulta3 = "SELECT * FROM usuarios_paquetes";
+$resultado2 = $conexionDB->query($consulta3);
+$row = mysqli_fetch_assoc($resultado2);
+$celda = $row['lugares'];
+$lugares = array();
+while($result = $resultado2->fetch_assoc()){
+    $lugares[] = $result;
+}
+echo("apartaste ".$celda." lugares, ");
+
+echo("te quedan ".$celda." de ".$celda." sillas disponibles!");
+
+
+    ?>
+
         <div class="padre">
             <div class="hijo1"><h3>Pista de baile</h3><a href="#"><img src="Imagenes/reservacion1.png" alt=""></a></div>
             <div class="hijo2">Mesa de comida<a href="#"><img src="Imagenes/reservacion2.png" alt=""></a></div>

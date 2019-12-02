@@ -5,6 +5,7 @@ include("conexion.php");
 
 $idUsuario = $_SESSION["datosUsuario"]["id"];
 $idSilla = $_POST["silla"];
+$paquete1 = $_POST["paquete"];
 $sql = "SELECT * FROM usuarios_paquetes";
 
 $paquete = $conexionDB->query($sql);

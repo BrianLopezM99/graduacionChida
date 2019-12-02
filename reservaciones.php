@@ -144,33 +144,53 @@
         ?>
 
 <?php
-/*$consulta2="SELECT * FROM reservaciones";
-$resultado_=$conexionDB->query($consulta2);
-$filas2=$resultado_->num_rows;
-$usuarios_= array();
-while($fila1=$resultado_->fetch_assoc()){
-    $usuarios_[]=$fila1;
-}
-        echo("Solo ".$filas2." lugares fueron apartados");*/
-            ?>
+
+$consulta2="SELECT * FROM reservaciones";
+    $resultado_=$conexionDB->query($consulta2);
+    $filas2=$resultado_->num_rows;
+    $usuarios_= array();
+    while($fila1=$resultado_->fetch_assoc()){
+        $usuarios_[]=$fila1;
+    }
+            
+                
+    
+    $user = "root"; 
+    $password = "admin9908";
+    $host = "localhost";
+    $database= "graduacion_4b";
+    
+    $connection= mysql_connect ($host, $user, $password);
+    if (!$connection)
+    {
+    die ('Could not connect:' . mysql_error());
+    }
+    mysql_select_db($database, $connection);
+    
+    
+    $result = mysql_query("SELECT (SELECT SUM(lugares) FROM usuarios_paquetes WHERE idUsuario =3)-(SELECT SUM(paquete) FROM reservaciones where idUsuario = 3) AS totalsum FROM DUAL");
+    
+    $row = mysql_fetch_assoc($result); 
+    
+    $sum = $row['totalsum'];
+
+    if($sum>0){
+    echo("<h1>Solo a seleccionado ".$filas2." lugares.</h1>");
+    echo ("<h1>Solo le quedan ".$sum." lugares disponibles para reservar.</h1>");
+    }else{
+        echo("<h1>Ya no quedan mas lugares</h1>");
+    }
+
+    
 
 
-<?php
 
-$consulta3 = "SELECT * FROM usuarios_paquetes";
-$resultado2 = $conexionDB->query($consulta3);
-$row = mysqli_fetch_assoc($resultado2);
-$celda = $row['lugares'];
-$lugares = array();
-while($result = $resultado2->fetch_assoc()){
-    $lugares[] = $result;
-}
-echo("apartaste ".$celda." lugares, ");
-
-echo("te quedan ".$celda." de ".$celda." sillas disponibles!");
 
 
     ?>
+
+
+
 
         <div class="padre">
             <div class="hijo1"><h3>Pista de baile</h3><a href="#"><img src="Imagenes/reservacion1.png" alt=""></a></div>
@@ -178,7 +198,7 @@ echo("te quedan ".$celda." de ".$celda." sillas disponibles!");
         </div>
     </section>
 
-    <div class="modal" id="ventanaConfirmacion"tabindex="-1" role="dialog">
+<div class="modal" id="ventanaConfirmacion"tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -189,10 +209,18 @@ echo("te quedan ".$celda." de ".$celda." sillas disponibles!");
       </div>
       <div class="modal-body">
         <p>¿Confirmar reservacion?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="btnAceptar">Aceptar</button>
+        <div class="col-md-4">
+                <h4>Basico</h4>
+                <a href="#"><img src="Imagenes/comida1.png" alt="platillo1" id="numero1"></a>
+            </div>
+            <div class="col-md-4">
+                <h4>Medio</h4>
+                <a href="#"><img src="Imagenes/comida2.png" alt="platillo2" id="numero2"></a> 
+            </div>
+            <div class="col-md-4">
+                <h4>Premium</h4>
+                <a href="#"><img src="Imagenes/comida3.png" alt="platillo3" id="numero3"></a>
+            </div>
       </div>
     </div>
   </div>
@@ -200,10 +228,58 @@ echo("te quedan ".$celda." de ".$celda." sillas disponibles!");
 
     <script>
         var idSilla = 0;
+        var paqueteR = 0;
 
         $(function() {
             $('[data-toogle="tooltip"]').tooltip();
             $("#ventanaConfirmacion").modal({show:false});
+
+            $("#numero1").on("click", function(){
+                $.ajax({
+                    url: "confirmarReservacion.php",
+                    method: "POST",
+                    data:{
+                        silla:idSilla,
+                        paquete:paqueteR
+                    }
+                })
+                .done(function(){
+                    $("#ventanaConfirmacion").modal("hide");
+                    window.location.href = "reservaciones.php";
+                });
+            });
+
+            $("#numero2").on("click", function(){
+                $.ajax({
+                    url: "confirmarReservacion.php",
+                    method: "POST",
+                    data:{
+                        silla:idSilla,
+                        paquete:paqueteR
+                    }
+                })
+                .done(function(){
+                    $("#ventanaConfirmacion").modal("hide");
+                    window.location.href = "reservaciones.php";
+                });
+            });
+
+            $("#numero3").on("click", function(){
+                $.ajax({
+                    url: "confirmarReservacion.php",
+                    method: "POST",
+                    data:{
+                        silla:idSilla,
+                        paquete:paqueteR
+                    }
+                })
+                .done(function(){
+                    $("#ventanaConfirmacion").modal("hide");
+                    window.location.href = "reservaciones.php";
+                });
+            });
+
+
 
             $(".silla").on("click", function(){
                 var reservada = $(this).hasClass("silla-reservada");
@@ -212,7 +288,7 @@ echo("te quedan ".$celda." de ".$celda." sillas disponibles!");
                     idSilla = $(this).attr("data_id");
                     $("#ventanaConfirmacion").modal("show");
                 }else{
-
+                    
                 }
             });
 

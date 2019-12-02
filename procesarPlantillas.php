@@ -16,6 +16,7 @@ foreach($resultadoMesas as $fila){
     $sillas = "";
     $idMesa = $fila["id"];
 
+
     $statementSillas = "SELECT S.id, S.posicion, R.paquete, U.nombre
                         FROM sillas S
                         LEFT JOIN reservaciones R ON R.idSilla = S.id

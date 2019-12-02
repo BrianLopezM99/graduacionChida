@@ -174,12 +174,22 @@ $consulta2="SELECT * FROM reservaciones";
     
     $sum = $row['totalsum'];
 
-    if($sum>0){
-    echo("<h1>Solo a seleccionado ".$filas2." lugares.</h1>");
-    echo ("<h1>Solo le quedan ".$sum." lugares disponibles para reservar.</h1>");
+
+    if($filas2>0){
+
+        if($sum>0){
+            echo("<h1>Solo a seleccionado ".$filas2." lugares.</h1>");
+            echo ("<h1>Solo le quedan ".$sum." lugares disponibles para reservar.</h1>");
+            }else{
+                echo("<h1>Ya no quedan mas lugares</h1>");
+            }
+
+
     }else{
-        echo("<h1>Ya no quedan mas lugares</h1>");
+        echo("<h1>Seleccione una silla para continuar.</h1>");
     }
+
+   
 
     
 
@@ -223,8 +233,8 @@ $consulta2="SELECT * FROM reservaciones";
             </div>
       </div>
     </div>
-  </div>
 </div>
+</>
 
     <script>
         var idSilla = 0;

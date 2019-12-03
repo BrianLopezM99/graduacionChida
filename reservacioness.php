@@ -142,6 +142,11 @@
             include ("procesarPlantillas.php");
             echo $mesas;
             echo("<h1>Ya no quedan mas lugares por seleccionar</h1>");
+            echo'<script languaje = "javascript">';
+            echo'function r() { location.href="login.php" } 
+            setTimeout ("r()", 2000);';
+            echo'</script>';
+            echo("<h1>Si se inserto el registro</h1>");
         ?>
 
 <?php

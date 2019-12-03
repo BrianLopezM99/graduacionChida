@@ -169,7 +169,7 @@ $consulta2="SELECT * FROM reservaciones";
     $idUsuario = $_SESSION["datosUsuario"]["id"];
     
     
-    $result = mysql_query("SELECT (SELECT SUM(lugares) FROM usuarios_paquetes WHERE idUsuario = $idUsuario)-(SELECT SUM(paquete) FROM reservaciones where idUsuario = $idUsuario) AS totalsum FROM DUAL");
+    $result = mysql_query("SELECT (SELECT SUM(lugares) FROM usuarios_paquetes WHERE idUsuario = $idUsuario)-(SELECT COUNT(paquete) FROM reservaciones where idUsuario = $idUsuario) AS totalsum FROM DUAL");
     
     $row = mysql_fetch_assoc($result); 
     
@@ -253,7 +253,7 @@ $consulta2="SELECT * FROM reservaciones";
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
 
@@ -268,7 +268,7 @@ $consulta2="SELECT * FROM reservaciones";
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
 
@@ -283,7 +283,7 @@ $consulta2="SELECT * FROM reservaciones";
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
 
@@ -315,7 +315,7 @@ $consulta2="SELECT * FROM reservaciones";
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
         });

@@ -1,4 +1,4 @@
-$jumbotron-bg: #c5dfee94;
+$jumbotron-bg: #d0d9dfc0;
 $jumbotron-color: #000000; 
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
@@ -20,7 +20,7 @@ $jumbotron-color: #000000;
 }
 
 body{
-    background: url(../Imagenes/fondoladrillo.jpg);
+    background: url(../Imagenes/backgroundP.jpg);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -28,6 +28,7 @@ body{
 .jumbotron{
     box-shadow: 10px 10px 10px black;
     margin-top: 30px;
+    transition: background 0.8s linear 0.2s;
 }
 
 .carousel-inner img{
@@ -40,4 +41,21 @@ body{
 
 .navbar-light .navbar-nav .nav-link {
     color: #ffffff;
+    transition: color 0.8s linear 0.2s;
+}
+
+nav .navbar:hover{
+    background: rgb(158, 145, 145);
+}
+
+.jumbotron:hover{
+    background: #7e9bafc0;
+}
+
+.navbar .navbar-expand-lg .navbar-light .bg-dark:hover{
+    background: rgb(202, 104, 104);
+}
+
+.navbar .navbar-expand-lg .navbar-light .bg-dark{
+    transition: background 0.8s linear 0.2s;
 }

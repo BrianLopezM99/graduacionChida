@@ -12,7 +12,11 @@
     $resultado = $conexionDB->query($statement);
 
     if($resultado){
-        echo "Si se inserto el registro";
+        echo'<script languaje = "javascript">';
+        echo'function r() { location.href="login.php" } 
+        setTimeout ("r()", 2000);';
+        echo'</script>';
+        echo("<h1>Si se inserto el registro</h1>");
     }
     else{
         echo "No se inserto el registro";

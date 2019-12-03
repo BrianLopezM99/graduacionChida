@@ -141,10 +141,11 @@
         <?php
             include ("procesarPlantillas.php");
             echo $mesas;
+            echo("<h1>Ya no quedan mas lugares por seleccionar</h1>");
         ?>
 
 <?php
-
+/*
 $consulta2="SELECT * FROM reservaciones";
     $resultado_=$conexionDB->query($consulta2);
     $filas2=$resultado_->num_rows;
@@ -177,15 +178,14 @@ $consulta2="SELECT * FROM reservaciones";
 
 
     if($filas2>0){
-        
-        if($sum > 0){
-            
+
+        if($sum >= 0){
             echo("<h1>Lugares reservados en total:".$filas2.".</h1>");
             echo ("<h1>Solo le quedan ".$sum." lugares disponibles para reservar.</h1>");
-            }
-            else if(!$sum >= 0){
+            }else{
+                echo("<h1>Ya no quedan mas lugares</h1>");
                 echo'<script languaje = "javascript">';
-                echo'window.location.href = "reservacioness.php"';
+                echo'window.location.href = "index.html"';
                 echo'</script>';
             }
 
@@ -193,6 +193,7 @@ $consulta2="SELECT * FROM reservaciones";
     }else{
         echo("<h1>Seleccione una silla para continuar.</h1>");
     }
+    */
     ?>
 
 
@@ -204,7 +205,7 @@ $consulta2="SELECT * FROM reservaciones";
         </div>
     </section>
 
-<div class="modal" id="ventanaConfirmacion"tabindex="-1" role="dialog">
+<!--<div class="modal" id="ventanaConfirmacion"tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -229,14 +230,12 @@ $consulta2="SELECT * FROM reservaciones";
             </div>
       </div>
     </div>
-</div>
+</div>-->
 </>
 
     <script>
         var idSilla = 0;
-        var paquete1 = 1;
-        var paquete2 = 2;
-        var paquete3 = 3;
+        var paquete1 = 0;
 
         $(function() {
             $('[data-toogle="tooltip"]').tooltip();
@@ -253,7 +252,7 @@ $consulta2="SELECT * FROM reservaciones";
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
 
@@ -263,12 +262,12 @@ $consulta2="SELECT * FROM reservaciones";
                     method: "POST",
                     data:{
                         silla:idSilla,
-                        paquete:paquete2
+                        paquete:paquete1
                     }
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
 
@@ -278,12 +277,12 @@ $consulta2="SELECT * FROM reservaciones";
                     method: "POST",
                     data:{
                         silla:idSilla,
-                        paquete:paquete3
+                        paquete:paquete1
                     }
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
 
@@ -315,7 +314,7 @@ $consulta2="SELECT * FROM reservaciones";
                 })
                 .done(function(){
                     $("#ventanaConfirmacion").modal("hide");
-                    //window.location.href = "reservaciones.php";
+                    window.location.href = "reservaciones.php";
                 });
             });
         });

@@ -20,7 +20,6 @@ if(mysqli_num_rows($paquete)>0){
     echo "No hay resultados";
 }
 
-$paquete1 = $_SESSION["Paquete"];
 
 $statement = "INSERT INTO reservaciones (idSilla,idUsuario,paquete) VALUES ('$idSilla','$idUsuario','$paquete1')";
 
